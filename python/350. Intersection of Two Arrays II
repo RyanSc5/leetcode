@@ -1,0 +1,14 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        #使用defaultdict自動建立key, 因此代碼只需專注在value上做 +-
+        #使用前須先引入模組 from collections import defaultdict
+        s = defaultdict(int)
+        for i in nums1:
+            if i in nums2:
+                s[i] += 1
+        ans = []
+        for j in nums2:
+            if j in nums1 and s[j] > 0:
+                s[j] -= 1
+                ans.append(j)
+        return ans
