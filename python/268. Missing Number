@@ -1,5 +1,6 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
+        #出發邏輯:用list總長度累加後扣除list內的各項元素加總等於遺失的數字
         n = len(nums)
         total = 0
         for i in range(n+1):
