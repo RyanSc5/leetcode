@@ -1,0 +1,8 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        #取出ransomNote的集合 , 用此集合判斷2字串中存在的數量
+        r = list(set(ransomNote))
+        for i in r:
+            if ransomNote.count(i) > magazine.count(i):
+                return False
+        return True
