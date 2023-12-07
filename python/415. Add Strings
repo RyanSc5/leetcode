@@ -1,0 +1,26 @@
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+        #將2字串轉換列表, 每次進入迴圈取兩列表的最後一位相加
+        num1 = list(num1)
+        num2 = list(num2)
+        #l1存放相加後的結果, 提醒:此列表順序是倒過來的, 因為是末位先加
+        l1 = []
+        #carry存放進位的值
+        carry = 0
+        #current紀錄當下相加的總和
+        current = 0
+        #當2字串都還有值時, 執行迴圈
+        while len(num1)>0 or len(num2)>0:
+            if len(num1)>0 and len(num2)>0:
+                current = int(num1.pop())+int(num2.pop())+carry
+            elif len(num1)>0:
+                current = int(num1.pop())+carry
+            elif len(num2)>0:
+                current = int(num2.pop())+carry
+            l1.append(str(current%10))
+            carry = current//10
+        if carry == 1:
+            l1.append(str(1))
+        l1.reverse()
+        ans = "".join(l1)
+        return ans
