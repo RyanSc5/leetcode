@@ -1,0 +1,21 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+      #若長度不同則直接False
+      if len(s) != len(t):
+        return False
+      #建立2個字典個別擺放對應的值, 若出現同key但value不同則直接False
+      d1 = {}
+      d2 = {}
+      #使用zip函數打包2字串同索引的值
+      for i, j in zip(s, t):
+        if i not in d1:
+          d1[i] = j
+        else:
+          if d1[i] != j:
+            return False
+        if j not in d2:
+          d2[j] = i
+        else:
+          if d2[j] != i:
+            return False
+      return True
