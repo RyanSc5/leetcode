@@ -1,0 +1,11 @@
+class Solution:
+    def arrangeCoins(self, n: int) -> int:
+      #硬幣需求的數量
+      k = 1
+      while n>0:
+        if n >= k:
+          n -= k
+        else:
+          return k-1
+        k += 1
+      return k-1
