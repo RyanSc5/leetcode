@@ -1,0 +1,11 @@
+class Solution:
+    def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
+        #解題邏輯 : 計算中毒的當下最久持續幾秒 
+        #ex: 假設第1秒跟第2秒都被毒到且每次中毒期間維持2秒, 則第1秒那次的中毒只維持1秒
+        total = 0
+        for i in range(len(timeSeries)-1):
+            if timeSeries[i+1]>timeSeries[i]+duration:
+                total += duration
+            else:
+                total += timeSeries[i+1]-timeSeries[i]
+        return total+duration
