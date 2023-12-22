@@ -1,6 +1,6 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        #解題套路 : 建一字典key存放各個元素(由小到大排列)集合 , 若元素已存在字典則將該元素加入到對應的index。
+        #解題套路 : 建一字典key存放各個元素(由小到大排列)集合 , 若元素已存在字典則將該元素加入到對應的index
         s = ["".join(sorted(i)) for i in strs]
         ans = [[] for i in range(len(set(s)))]
         dic = {}
